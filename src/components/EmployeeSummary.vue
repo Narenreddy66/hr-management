@@ -5,31 +5,50 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-2 col-md-3">
-        <div class="bg-black position1">
+        <div class="position1">
           <SideNavbar />
         </div>
       </div>
       <div class="col-lg-10 col-md-9 col-sm-12">
         <div class="d-flex justify-content-between mt-1 position4">
           <div class="d-flex gap-2">
-            <i @click="backMove()" class="bi bi-arrow-left-square-fill"></i>
-            <i class="bi bi-arrow-right-square-fill"></i>
+            <div class="d-flex gap-2 mt-1">
+              <i @click="backMove()" class="bi bi-arrow-left-square-fill"></i>
+              <i class="bi bi-arrow-right-square-fill"></i>
+            </div>
 
             <h6 class="mt-2 text-nowrap">Add Employee</h6>
-            <input
-              style="width: 300px"
-              type=" search"
-              class="rounded-1 border-1 bg-light w-75 widthatview padding"
-              placeholder="Search information"
-              v-model="searchQuery"
-            />
+            <div class="position-relative">
+              <input
+                type="search"
+                class="rounded-1 border-1 bg-light widthatview padding"
+                placeholder=" Search information"
+                v-model="searchQuery"
+              />
+              <i class="bi bi-search"></i>
+            </div>
           </div>
           <div class="d-flex gap-2">
             <button type="button" class="btn border-1 rounded-1 bg-light">
               Export
             </button>
             <button type="button" class="btn border-1 rounded-1 bg-light">
-              Filter
+              <div class="d-flex gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="8"
+                  viewBox="0 0 14 8"
+                  fill="none"
+                  class="mt-2"
+                >
+                  <path
+                    d="M0.4375 0.28125H13.5625V1.59375H0.4375V0.28125ZM2.625 3.34375H11.375V4.65625H2.625V3.34375ZM5.25 6.40625H8.75V7.71875H5.25V6.40625Z"
+                    fill="#1C1B1F"
+                  />
+                </svg>
+                <p>Filter</p>
+              </div>
             </button>
             <!-- Button trigger modal -->
             <button
@@ -38,7 +57,7 @@
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
             >
-              Add Employee+
+              +
             </button>
 
             <!-- Modal -->
@@ -130,9 +149,11 @@
                       >
                         <div>
                           <div class="card bg-color1 ps-1">
-                            <h6>Primary Details:</h6>
+                            <h6 class="mt-1">Primary Details:</h6>
 
-                            <div class="input-group mb-3 gap-5">
+                            <div
+                              class="input-group d-flex justify-content-between pe-1"
+                            >
                               <div>
                                 <label for="username">Enter UserName:</label>
                                 <input
@@ -158,12 +179,12 @@
                             </div>
 
                             <div
-                              class="input-group mb-3 d-flex justify-content-between"
+                              class="input-group mt-3 d-flex justify-content-between pe-1"
                             >
                               <div>
                                 <label for="dob">Enter Date.OF.Birth:*</label>
                                 <input
-                                  style="width: 200px"
+                                  style="width: 220px"
                                   type="date"
                                   class="form-control"
                                   placeholder="Enter D.O.B"
@@ -177,14 +198,15 @@
                                 <div>
                                   <select
                                     class="form-select"
-                                    style="width: 200px"
+                                    style="width: 220px"
                                     aria-label="Default select example"
                                     v-model="myData.blood_group"
                                   >
                                     <option selected>Select</option>
                                     <option value="A+">A+</option>
                                     <option value="A-">A-</option>
-                                    <option value="O">0</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
                                     <option value="AB+">AB+</option>
                                     <option value="AB-">AB-</option>
                                   </select>
@@ -193,13 +215,13 @@
                             </div>
 
                             <div
-                              class="input-group mb-3 d-flex justify-content-between"
+                              class="input-group mt-3 d-flex justify-content-between pe-1"
                             >
                               <div>
                                 <label for="gender">Enter Gender:</label><br />
                                 <select
                                   class="form-select"
-                                  style="width: 200px"
+                                  style="width: 220px"
                                   aria-label="Default select example"
                                   v-model="myData.gender"
                                 >
@@ -220,7 +242,7 @@
                                 ><br />
                                 <select
                                   class="form-select"
-                                  style="width: 200px"
+                                  style="width: 220px"
                                   aria-label="Default select example"
                                 >
                                   <option selected>Select</option>
@@ -235,7 +257,7 @@
                             </div>
 
                             <div
-                              class="input-group d-flex justify-content-between mb-2"
+                              class="input-group d-flex justify-content-between mt-3 mb-3 pe-1"
                             >
                               <div>
                                 <label for="martial"
@@ -248,7 +270,7 @@
                                 >
                                   <option selected>select</option>
                                   <option value="Married">Married</option>
-                                  <option value="UnMarried">UnMarried</option>
+                                  <option value="UnMarried">Unmarried</option>
                                   <option value="Not intrested to say">
                                     Not intrested to say
                                   </option>
@@ -258,8 +280,9 @@
                                 <label for="dateofjoing">Date of Joining</label
                                 ><br />
                                 <input
+                                  style="width: 220px"
                                   type="date"
-                                  class="form-control"
+                                  class="form-control pe-2"
                                   placeholder="enter date of joing"
                                   v-model="myData.date_of_joining"
                                 />
@@ -268,8 +291,10 @@
                           </div>
                         </div>
                         <div class="card bg-color1 mt-2 ps-1">
-                          <h6>Contact details:</h6>
-                          <div class="input-group mb-3 gap-5">
+                          <h6 class="mt-1">Contact details:</h6>
+                          <div
+                            class="input-group d-flex justify-content-between pe-1 mb-2"
+                          >
                             <div>
                               <label for="username">Enter Mobileno:</label>
                               <input
@@ -278,9 +303,9 @@
                                 placeholder="Mobile number"
                                 aria-label="Username"
                                 aria-describedby="basic-addon1"
-                                v-model="myData.emergency_phone_number"
                               />
                             </div>
+                            <!-- v-model="myData.emergency_phone_number" -->
                             <div>
                               <label for="username"
                                 >Enter Emergency Mobileno:</label
@@ -291,14 +316,16 @@
                                 placeholder="Emergency number"
                                 aria-label="Username"
                                 aria-describedby="basic-addon1"
-                                v-model="myData.emergency_phone_number"
                               />
+                              <!-- v-model="myData.per_phone_number" -->
                             </div>
                           </div>
                         </div>
                         <div class="card bg-color1 mt-2 ps-1">
-                          <h6>Job detials</h6>
-                          <div class="input-group mb-3 gap-5">
+                          <h6 class="mt-1">Job detials</h6>
+                          <div
+                            class="input-group d-flex justify-content-between pe-1 mt-2"
+                          >
                             <div>
                               <label for="username">Enter desgintion:</label>
                               <input
@@ -323,7 +350,9 @@
                             </div>
                           </div>
 
-                          <div class="input-group mb-3 gap-5">
+                          <div
+                            class="input-group mb-2 d-flex justify-content-between pe-1"
+                          >
                             <div>
                               <label for="dob">Enter shift:</label>
                               <input
@@ -385,8 +414,10 @@
             </div>
           </div>
         </div>
+        
+        <div v-if="show">
         <table
-          v-if="show"
+          
           class="table table-striped table-responsive-lg table-responsive-md table-responsive-sm mt-3"
         >
           <thead>
@@ -406,28 +437,29 @@
               <td>{{ index + 1 }}</td>
               <td class="text-nowrap">{{ employee.name }}</td>
               <td>{{ employee.employee_name }}</td>
-              <td>{{ employee.department }}</td>
-              <td>{{ employee.designation }}</td>
-              <td>{{ employee.default_shift }}</td>
-              <td v-if="employee.status == 'Active'">
-                <button
-                  style="font-size: 12px"
-                  class="btn btn-success border-0 rounded-3 text-white"
-                >
-                  {{ employee.status }}
-                </button>
+              <td v-if="!employee.department">--</td>
+              <td v-if="employee.department">
+                {{ employee.department }}
+              </td>
+              <td v-if="employee.designation">{{ employee.designation }}</td>
+              <td v-if="!employee.designation">--</td>
+              <td v-if="!employee.default_shift">--</td>
+              <td v-if="employee.default_shift">{{ employee.default_shift }}</td>
+              <td class="text-center" v-if="employee.status == 'Active'">
+                <div class="d-flex gap-2 justify-content-center">
+                  <i class="bi bi-circle active-icon"></i>
+                  <p>Active</p>
+                </div>
               </td>
 
-              <td v-if="employee.status !== 'Active'">
-                <button
-                  style="font-size: 12px"
-                  class="btn btn-danger border-0 rounded-3 text-white"
-                >
-                  {{ employee.status }}
-                </button>
+              <td class="text-center" v-if="employee.status == 'Inactive'">
+                <div class="d-flex gap-2 justify-content-center">
+                  <i class="bi bi-circle inactive"></i>
+                  <p>Inactive</p>
+                </div>
               </td>
               <td class="  ">
-                <div class="d-flex gap-2">
+                <div class="d-flex gap-3 justify-content-center">
                   <i
                     @click="detailsPage(employee.name)"
                     class="bi bi-pencil"
@@ -438,24 +470,43 @@
             </tr>
           </tbody>
         </table>
+        <!-- <div class="pagination">
+      <button @click="prevPage" :disabled="currentPage === 1">Previous</button>
+      <span>{{ currentPage }}</span>
+      <button @click="nextPage" :disabled="currentPage === totalPages">Next</button>
+    </div> -->
+        <!-- <paginate :perPage="15" :total="filteredData.length" @paginate="handlePageChange"></paginate> -->
+      </div>
+  
         <div v-if="!show">
           <div class="card mt-2">
             <div class="d-flex justify-content-between bg-color text-white">
               <!-- <div>
                 <img src=''
               </div> -->
+              <div>
+                <img
+                  class="ps-1 mt-1"
+                  style="width: 90px; height: 90px; border-radius: 4px"
+                  src="../assets/images/Rectangle 145 - Copy.jpg"
+                />
+              </div>
               <div class="d-flex align-items-center gap-2 ps-2">
                 <div><i class="bi bi-person-square"></i></div>
                 <div class="">
                   <p id="name">{{ currentEmployee.employee_name }}</p>
-                  <label class="" for="name">Name:</label>
+                  <label class="font" style="font-size: " for="name"
+                    >Name:</label
+                  >
                 </div>
               </div>
               <div class="d-flex align-items-center gap-2">
                 <div><i class="bi bi-envelope"></i></div>
                 <div class="">
                   <p id="email">{{ currentEmployee.personal_email }}</p>
-                  <label class="" for="email">Email:</label>
+                  <label class="font" style="font-size: " for="email"
+                    >Email:</label
+                  >
                 </div>
               </div>
               <div class="d-flex align-items-center gap-2">
@@ -464,33 +515,36 @@
                   <p id="mobileno">
                     {{ currentEmployee.emergency_phone_number }}
                   </p>
-                  <label class="" for="mobileno">Mobileno:</label>
+                  <label class="font" style="font-size: " for="mobileno"
+                    >Mobileno:</label
+                  >
                 </div>
               </div>
               <div class="d-flex align-items-center gap-2">
                 <div><i class="bi bi-person-plus"></i></div>
                 <div class="">
                   <p id="desigination">{{ currentEmployee.designation }}</p>
-                  <label class="" for="desigination">Desigination:</label>
+                  <label class="font" style="font-size: " for="desigination"
+                    >Desigination:</label
+                  >
                 </div>
               </div>
 
               <div class="pe-3 d-flex align-items-center">
                 <!-- <p id="Status" class="pe-3">Status</p> -->
-                <button
-                  style="font-size: 15px"
-                  class="btn btn- bg-success border-0 rounded-3 text-white mt-2"
-                  v-if="currentEmployee.status == 'Active'"
-                >
-                  {{ currentEmployee.status }}
-                </button>
-                <button
-                  style="font-size: 15px"
-                  class="btn btn- bg-danger border-0 rounded-3 text-white mt-2"
-                  v-if="currentEmployee.status !== 'Active'"
-                >
-                  {{ currentEmployee.status }}
-                </button>
+                
+                <div v-if="currentEmployee.status == 'Active'" class="d-flex gap-2 align-items-center">
+                  <i class="bi bi-circle active-icon"></i>
+                  <p>{{ currentEmployee.status }}</p>
+                </div>
+             
+
+          
+                <div v-if="currentEmployee.status == 'Inactive'" class="d-flex gap-2 align-items-center">
+                  <i class="bi bi-circle inactive"></i>
+                  <p>{{ currentEmployee.status }}</p>
+                </div>
+           
               </div>
             </div>
           </div>
@@ -551,8 +605,16 @@
                           <i class="bi bi-person-circle"></i>
                           <p>PrimaryDetails</p>
                         </div>
-
-                        <i class="bi bi-pencil"></i>
+                        <!-- modal -->
+                        <!-- Button trigger modal -->
+                        <button
+                          type="button"
+                          class="btn"
+                          data-bs-toggle="modal"
+                          data-bs-target="#exampleModal123"
+                        >
+                          <i class="bi bi-pencil"></i>
+                        </button>
                       </div>
                     </div>
                     <div class="card-body">
@@ -560,28 +622,32 @@
                         <div class=" ">
                           <p id="name">{{ currentEmployee.employee_name }}</p>
 
-                          <label class="text-muted" for="name">Name:</label>
+                          <label class="text-muted font" for="name"
+                            >Name:</label
+                          >
                         </div>
                         <div class="text-end">
                           <p id="email">
                             {{ currentEmployee.prefered_contact_email }}
                           </p>
 
-                          <label class="text-muted" for="email">Email:</label>
+                          <label class="text-muted font" for="email"
+                            >Email:</label
+                          >
                         </div>
                       </div>
                       <div class="d-flex justify-content-between mt-2">
                         <div class="">
                           <p id="name">{{ currentEmployee.first_name }}</p>
 
-                          <label class="text-muted" for="name"
+                          <label class="text-muted font" for="name"
                             >FirstName:</label
                           >
                         </div>
                         <div class="text-end">
                           <p id="email">{{ currentEmployee.last_name }}</p>
 
-                          <label class="text-muted" for="email"
+                          <label class="text-muted font" for="email"
                             >LastName:</label
                           >
                         </div>
@@ -590,27 +656,29 @@
                         <div class="">
                           <p id="name">{{ currentEmployee.salutation }}</p>
 
-                          <label class="text-muted" for="name"
+                          <label class="text-muted font" for="name"
                             >Salutation:</label
                           >
                         </div>
                         <div class="text-end">
                           <p id="email">{{ currentEmployee.date_of_birth }}</p>
 
-                          <label class="text-muted" for="email">DOB:</label>
+                          <label class="text-muted font" for="email"
+                            >DOB:</label
+                          >
                         </div>
                       </div>
                       <div class="d-flex justify-content-between mt-2">
                         <div class="">
                           <p id="name">{{ currentEmployee.blood_group }}</p>
 
-                          <label class="text-muted" for="name"
+                          <label class="text-muted font" for="name"
                             >Blood-group:</label
                           >
                         </div>
                         <div class="text-end">
                           <p id="email">Yes</p>
-                          <label class="text-muted" for="email"
+                          <label class="text-muted font" for="email"
                             >MartialStatus:</label
                           >
                         </div>
@@ -624,19 +692,28 @@
                           <i class="bi bi-people-fill"></i>
                           <p>FamilyDetails</p>
                         </div>
-                        <i class="bi bi-pencil"></i>
+                        <!-- modal3 -->
+                        <!-- Button trigger modal -->
+                        <button
+                          type="button"
+                          class="btn"
+                          data-bs-toggle="modal"
+                          data-bs-target="#exampleModal1234"
+                        >
+                          <i class="bi bi-pencil"></i>
+                        </button>
                       </div>
                     </div>
                     <div class="card-body">
                       <div class="d-flex justify-content-between">
                         <div>
-                          <label class="text-muted" for="fname"
+                          <label class="text-muted font" for="fname"
                             >FatherName:</label
                           ><br />
                           <p>Lorem ipsum</p>
                         </div>
                         <div>
-                          <label class="text-muted" for="mname"
+                          <label class="text-muted font" for="mname"
                             >MotherName:</label
                           ><br />
                           <p>Lorem, ipsum.</p>
@@ -644,14 +721,14 @@
                       </div>
                       <div class="d-flex justify-content-between">
                         <div>
-                          <label class="text-muted" for="fname"
+                          <label class="text-muted font" for="fname"
                             >GaurdianName:</label
                           ><br />
                           <p>Lorem, ipsum.</p>
                         </div>
                         <div>
-                          <label class="text-muted" for="fname"
-                            >GaurdianName:</label
+                          <label class="text-muted font" for="fname"
+                            >GaurdianNo:</label
                           ><br />
                           <p>Lorem, ipsum.</p>
                         </div>
@@ -665,7 +742,16 @@
                           <i class="bi bi-people-fill"></i>
                           <p>ContactDetails</p>
                         </div>
-                        <i class="bi bi-pencil"></i>
+                        <!-- modal3 -->
+                        <!-- Button trigger modal -->
+                        <button
+                          type="button"
+                          class="btn"
+                          data-bs-toggle="modal"
+                          data-bs-target="#exampleModal12345"
+                        >
+                          <i class="bi bi-pencil"></i>
+                        </button>
                       </div>
                     </div>
                     <div class="card-body">
@@ -675,14 +761,16 @@
                             {{ currentEmployee.emergency_phone_number }}
                           </p>
 
-                          <label class="text-muted" for="name">Mobileno:</label>
+                          <label class="text-muted font" for="name"
+                            >Mobileno:</label
+                          >
                         </div>
                         <div class="text-end">
                           <p id="email">
                             {{ currentEmployee.emergency_phone_number }}
                           </p>
 
-                          <label class="text-muted" for="email"
+                          <label class="text-muted font" for="email"
                             >EmergencyMobileno:</label
                           >
                         </div>
@@ -691,12 +779,14 @@
                         <div class="">
                           <p id="name">{{ currentEmployee.personal_email }}</p>
 
-                          <label class="text-muted" for="name">Mailid:</label>
+                          <label class="text-muted font" for="name"
+                            >Mailid:</label
+                          >
                         </div>
                         <div class="text-end">
                           <p id="email">{{ currentEmployee.company_email }}</p>
 
-                          <label class="text-muted" for="email"
+                          <label class="text-muted font" for="email"
                             >Office mail-id:</label
                           >
                         </div>
@@ -708,12 +798,19 @@
                   <div class="card mt-1">
                     <div class="card-header">
                       <div class="d-flex justify-content-between ps-2">
-                        <div class="d-flex gap-2">
+                        <div class="d-flex gap-2 align-items-center">
                           <i class="bi bi-geo-alt-fill"></i>
                           <p>Bio/Coverletter</p>
                         </div>
-
-                        <i class="bi bi-pencil"></i>
+                        <!-- modal5 -->
+                        <button
+                          type="button"
+                          class="btn"
+                          data-bs-toggle="modal"
+                          data-bs-target="#exampleModal123456"
+                        >
+                          <i class="bi bi-pencil"></i>
+                        </button>
                       </div>
                     </div>
                     <div class="card-body">
@@ -767,7 +864,7 @@
                       <div class="d-flex justify-content-between">
                         <div>
                           <p>MallaReddy institue of tech</p>
-                          <label class="text-muted" for="clge"
+                          <label class="text-muted font" for="clge"
                             >Enter Collge:</label
                           >
                         </div>
@@ -781,7 +878,21 @@
                       <div class="d-flex justify-content-between">
                         <div>
                           <p>MallaReddy institue of tech</p>
-                          <label class="text-muted" for="clge"
+                          <label class="text-muted font" for="clge"
+                            >Enter Collge:</label
+                          >
+                        </div>
+                        <div class="text-end">
+                          <p>MallaReddy institue of tech</p>
+                          <label class="text-muted text-end" for="clge"
+                            >Enter Collge:</label
+                          >
+                        </div>
+                      </div>
+                      <div class="d-flex justify-content-between">
+                        <div>
+                          <p>MallaReddy institue of tech</p>
+                          <label class="text-muted font" for="clge"
                             >Enter Collge:</label
                           >
                         </div>
@@ -816,19 +927,19 @@
                       <div class="d-flex justify-content-between">
                         <div>
                           <p>narenreddy</p>
-                          <label class="text-muted" for="leave"
+                          <label class="text-muted font" for="leave"
                             >Expense Approver</label
                           >
                         </div>
                         <div>
                           <p>narenreddy</p>
-                          <label class="text-muted" for="leave"
+                          <label class="text-muted font" for="leave"
                             >Leave Approver</label
                           >
                         </div>
                         <div>
                           <p>narenreddy</p>
-                          <label class="text-muted" for="leave"
+                          <label class="text-muted font" for="leave"
                             >Shift Approver</label
                           >
                         </div>
@@ -846,18 +957,20 @@
                       <div class="d-flex justify-content-between">
                         <div>
                           <p>Biometric</p>
-                          <label class="text-muted" for="leave">Device</label>
+                          <label class="text-muted font" for="leave"
+                            >Device</label
+                          >
                         </div>
                         <div>
                           <p>2023-2024 holidays</p>
-                          <label class="text-muted" for="leave"
+                          <label class="text-muted font" for="leave"
                             >Holiday list</label
                           >
                         </div>
                         <div>
                           <p>{{ currentEmployee.default_shift }}</p>
 
-                          <label class="text-muted" for="leave"
+                          <label class="text-muted font" for="leave"
                             >Defualt Shift</label
                           >
                         </div>
@@ -876,6 +989,392 @@
               ...
             </div>
           </div>
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="exampleModal123"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Personal Details
+                  </h5>
+                  <button
+                    type="button"
+                    class="close btn-primary border-0 rounded-2"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="input-group d-flex justify-content-between pe-1">
+                    <div>
+                      <label for="username">Enter FullName:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Username"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                        v-model="currentEmployee.first_name"
+                      />
+                    </div>
+                    <div>
+                      <label for="username">Enter Mail id:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Mail id"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                        v-model="currentEmployee.personal_email"
+                      />
+                    </div>
+                  </div>
+                  <div class="input-group d-flex justify-content-between pe-1">
+                    <div>
+                      <label for="username">Enter FirstName:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Firstname"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                        v-model="currentEmployee.first_name"
+                      />
+                    </div>
+                    <div>
+                      <label for="username">Enter Lastname:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Mail id"
+                        aria-label="Lastname"
+                        aria-describedby="basic-addon1"
+                        v-model="currentEmployee.last_name"
+                      />
+                    </div>
+                  </div>
+                  <div class="input-group d-flex justify-content-between pe-1">
+                    <div>
+                      <label for="martial">Enter Salutation:</label>
+                      <select
+                        class="form-select"
+                        aria-label="Default select example"
+                        v-model="currentEmployee.salutation"
+                      >
+                        <option selected>select</option>
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="username">Enter Dob:</label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        placeholder="Enter DOB"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                        v-model="currentEmployee.date_of_birth"
+                      />
+                    </div>
+                  </div>
+                  <div class="input-group d-flex justify-content-between pe-1">
+                    <div>
+                      <label for="bloodgroup">Enter your BloodGroup:</label>
+                      <div>
+                        <select
+                          class="form-select"
+                          style="width: 220px"
+                          aria-label="Default select example"
+                          v-model="currentEmployee.blood_group"
+                        >
+                          <option selected>Select</option>
+                          <option value="A+">A+</option>
+                          <option value="A-">A-</option>
+                          <option value="O+">O+</option>
+                          <option value="O-">O-</option>
+                          <option value="AB+">AB+</option>
+                          <option value="AB-">AB-</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div>
+                      <label for="physiacllyhandled"
+                        >Physically Handicaped:</label
+                      ><br />
+                      <select
+                        class="form-select"
+                        style="width: 220px"
+                        aria-label="Default select example"
+                      >
+                        <option selected>Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+
+                        <option value="Neither say">Neither say</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="button" class="btn btn-primary">
+                    Save changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- modal2 -->
+          <div
+            class="modal fade"
+            id="exampleModal1234"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Family Details
+                  </h5>
+                  <button
+                    type="button"
+                    class="close btn-primary border-0 rounded-2"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <!-- 2 modal -->
+                <div class="modal-body">
+                  <div class="input-group d-flex justify-content-between pe-1">
+                    <div>
+                      <label for="username">Enter FatherName:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Fathername"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                        v-model="currentEmployee.first_name"
+                      />
+                    </div>
+                    <div>
+                      <label for="username">Enter MotherName:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="MotherName"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                        v-model="currentEmployee.personal_email"
+                      />
+                    </div>
+                  </div>
+                  <div class="input-group d-flex justify-content-between pe-1">
+                    <div>
+                      <label for="username">Enter Gaurdian:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Gaurdian"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                        v-model="currentEmployee.first_name"
+                      />
+                    </div>
+                    <div>
+                      <label for="username">Enter mobileno:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="MobileNo"
+                        aria-label="Lastname"
+                        aria-describedby="basic-addon1"
+                        v-model="currentEmployee.emergency_phone_number"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="button" class="btn btn-primary">
+                    Save changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- modal3 -->
+          <div
+            class="modal fade"
+            id="exampleModal12345"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Contact Details
+                  </h5>
+                  <button
+                    type="button"
+                    class="close btn-primary border-0 rounded-2"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+
+                <div class="modal-body">
+                  <div class="input-group d-flex justify-content-between pe-1">
+                    <div>
+                      <label for="username">Enter mobileno:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="mobileno"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                        v-model="currentEmployee.emergency_phone_number"
+                      />
+                    </div>
+                    <div>
+                      <label for="username">Enter EmergencyNo:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Emergencyno"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                        v-model="currentEmployee.emergency_phone_number"
+                      />
+                    </div>
+                  </div>
+                  <div class="input-group d-flex justify-content-between pe-1">
+                    <div>
+                      <label for="username">Enter mailid:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Mailid"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                        v-model="currentEmployee.personal_email"
+                      />
+                    </div>
+                    <div>
+                      <label for="username">Enter Office mail-id:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Office Mail id"
+                        aria-label="Lastname"
+                        aria-describedby="basic-addon1"
+                        v-model="currentEmployee.company_email"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="button" class="btn btn-primary">
+                    Save changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- modal4 -->
+          <div
+            class="modal fade"
+            id="exampleModal123456"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Bio</h5>
+                  <button
+                    type="button"
+                    class="close btn-primary border-0 rounded-2"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+
+                <div class="modal-body">
+                  <div class="card">
+                    <div class="input-group ps-1 mt-3 mb-3">
+                      <div>
+                        <label for="username">Enter Bio:</label>
+                        <input
+                          type="text"
+                          class="form-control w-100"
+                          placeholder="Enter Bio"
+                          aria-label="Username"
+                          aria-describedby="basic-addon1"
+                          v-model="currentEmployee.bio"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="button" class="btn btn-primary">
+                    Save changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -885,10 +1384,12 @@
 import axios from "axios";
 import SideNavbar from "./SideNavbar.vue";
 import SideBar from "./SideBar.vue";
+// import Paginate from "vuejs-paginate-next";
+
 
 export default {
   name: "EmployeeSummary",
-  components: { SideNavbar, SideBar },
+  components: { SideNavbar, SideBar, },
 
   data() {
     return {
@@ -899,12 +1400,22 @@ export default {
       myData: {},
       currentEmployee: [],
       show: true,
+      itemsPerPage:15,
+      currentPage: 1,
     };
   },
   mounted() {
     this.fetchData();
   },
   computed: {
+    totalPages() {
+      return Math.ceil(this.data.length / this.itemsPerPage);
+    },
+    paginatedData() {
+      const startIndex = (this.currentPage - 1) * 15;
+      const endIndex = startIndex + 15;
+      return this.filteredData.slice(startIndex, endIndex);
+    },
     filteredData() {
       return this.employeeSummary.filter((item) => {
         return Object.values(item).some((value) => {
@@ -917,6 +1428,19 @@ export default {
   },
 
   methods: {
+    nextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++;
+      }
+    },
+    prevPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+      }
+    },
+    // handlePageChange(page) {
+    //   this.currentPage = page;
+    // },
     fetchData() {
       this.loading = true;
       axios
@@ -973,8 +1497,35 @@ export default {
 /* .overflow{
     overflow-x: hidden !important;
 } */
+.padding + i {
+  position: absolute;
+  left: 15px;
+  top: 7px;
+  font-size: 14px;
+}
 .bg-color1 {
   background: #f5f6ff;
+}
+.active-icon::before {
+  content: "\f28a";
+  background: #10e20b;
+  color: white;
+  border-radius: 12px;
+}
+.inactive::before {
+  content: "\f28a";
+  background: #e20b0b;
+  color: white;
+  border-radius: 12px;
+}
+.font {
+  color: #fafafa;
+
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 .position2 {
   position: sticky;
@@ -992,9 +1543,16 @@ th {
 .text-size {
   font-size: 12px;
 }
+tr {
+  text-align: center;
+}
 td {
   text-align: center;
   font-size: 12px;
+
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 tr:hover {
   background: #9da8e1;
@@ -1019,12 +1577,12 @@ tr:hover {
   background: white;
 }
 .padding {
-  padding: 5px 20px 5px 20px;
+  padding: 5px 20px 5px 40px !important;
 }
 thead {
   position: sticky;
   top: 88px;
-  z-index: 500;
+  z-index: 0;
   background: white;
 }
 .bg-color {
@@ -1048,9 +1606,9 @@ thead .position1 {
 }
 .bg-color {
   background: #5b76ff;
-  border-radius: 5px;
+  border-radius: 6px;
   font-size: 14px;
-  height: 70px;
+  height: 100px;
 }
 .nav-pills .nav-link.active {
   background-color: transparent !important;
@@ -1061,11 +1619,26 @@ thead .position1 {
   color: black;
 }
 .card {
+  color: black;
+
+  font-family: Poppins;
   font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
   box-shadow: 0px 2px 4px 1px lightgray;
 }
 .padding {
   padding: 5px 20px 5px 20px;
+  position: relative;
+}
+.padding::before {
+  content: "\61442";
+  font-family: "Arial", sans-serif;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 p {
   margin-bottom: 0px !important;
@@ -1080,5 +1653,24 @@ p {
   z-index: 10;
 
   background: white;
+}
+input {
+  width: 220px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid #dddee2;
+  background: #fff;
+}
+select {
+  width: 220px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid #dddee2;
+}
+.bi-arrow-right-square-fill::before {
+  content: "\f136";
+  opacity: 0.3;
 }
 </style>

@@ -69,7 +69,21 @@
 </template>
 <style scoped>
 .bg-color {
-  background-image: url("https://t3.ftcdn.net/jpg/06/25/07/86/240_F_625078650_O3LHxY82SS3UeLfBKXl71tlslWZNu5Zt.jpg");
+  background-image: linear-gradient(
+    to right top,
+    #000000,
+    #050304,
+    #0a0508,
+    #0e080c,
+    #110b10,
+    #171115,
+    #1c1519,
+    #22191d,
+    #2c2022,
+    #362827,
+    #3f312c,
+    #473a31
+  );
   height: 100vh;
   background-repeat: no-repeat;
   font-family: Arial, sans-serif;
@@ -83,10 +97,9 @@
   background-size: cover;
 }
 .form-inf {
-  border: 1px solid white;
+  box-shadow: inset 1px 1px 20px 2px rgba(226, 228, 222, 0.81);
   padding: 20px 40px 20px 40px;
   border-radius: 10px;
-  box-shadow: 2px 1px 2px 2px lightgrey;
 }
 .link {
   text-decoration-line: none;
@@ -114,6 +127,9 @@ input {
   }
   .img-1 {
     width: 20%;
+    /* box-shadow: 7px 9px 63px 30px rgba(0, 0, 0, 0.75) inset;
+    -webkit-box-shadow: 7px 9px 63px 30px rgba(0, 0, 0, 0.75) inset;
+    -moz-box-shadow: 7px 9px 63px 30px rgba(0, 0, 0, 0.75) inset; */
   }
 }
 .form-inf,
